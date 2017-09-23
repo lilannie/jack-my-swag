@@ -3,8 +3,8 @@ const express = require('express'),
 	db = require('./db');
 
 /** USER **/
-router.post('/create-user', (req, res) => {
-	console.log('/api/create-user');
+router.post('/user', (req, res) => {
+	console.log('POST /api/user');
 	const {username, password} = req.body;
 
 	db.createUser(username, password, () => {
@@ -18,7 +18,7 @@ router.post('/create-user', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-	console.log('/api/login');
+	console.log('POST /api/login');
 	const {username, password} = req.body;
 
 	db.login(username, password, () => {
@@ -33,8 +33,8 @@ router.post('/login', (req, res) => {
 });
 
 /** POSTS **/
-outer.post('/create-post', (req, res) => {
-	console.log('/api/create-post');
+router.post('/post', (req, res) => {
+	console.log('POST /api/post');
 	const { title, description } = req.body;
 
 	db.createPost(title, description, () => {
@@ -45,6 +45,19 @@ outer.post('/create-post', (req, res) => {
 		});
 		res.end();
 	});
+});
+
+router.get('/posts', (req, res) => {
+	console.log('GET /api/posts');
+
+	let posts = db.getPosts();
+	res.status(200);
+	res.type('json');
+	res.send({
+		status: 'success',
+		posts
+	});
+	res.end();
 });
 
 module.exports = router;

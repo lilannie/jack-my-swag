@@ -1,19 +1,47 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import NotificationContainer from './Post/PostContainer';
+import PostContainer from './Post/PostContainer';
+import { mapStateToProps, mapDispatchToProps} from '../redux/selectors/home';
 
-export default class Home extends Component {
+export class Home extends Component {
+	constructor(props) {
+		super(props);
+
+gs
+	}
+
+	componentDidMount() {
+		const {
+			dispatchGetPosts
+		} = this.props;
+
+		dispatchGetPosts();
+	}
+
+	resolvePosts() {
+
+	}
+
 	render() {
 		return (
 			<div className="home">
 				<div className="notification-container">
-					<NotificationContainer/>
-					<NotificationContainer/>
-					<NotificationContainer/>
-					<NotificationContainer/>
-					<NotificationContainer/>
+					<PostContainer/>
+					<PostContainer/>
+					<PostContainer/>
+					<PostContainer/>
+					<PostContainer/>
 				</div>
 			</div>
 		);
 	}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
+Home.PropTypes = {
+	posts: PropTypes.array,
+	dispatchGetPosts: PropTypes.func.isRequired
 };

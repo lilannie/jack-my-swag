@@ -20,6 +20,7 @@ module.exports = {
 
 		callback();
 	},
+
 	login: (email, password, callback) => {
 		firebase.auth().signInWithEmailAndPassword(email, password)
 			.catch(error => {
@@ -29,11 +30,24 @@ module.exports = {
 
 		callback();
 	},
-	createPost: (title, description) => {
-		firebase.database().ref('/posts').set({
-			title: {
-				description
-			}
-		})
+
+	createPost: (title, description, callback) => {
+		firebase.database().ref('/posts').push({
+			title: title || 'Fake title',
+			description: description || 'Fake description'
+		});
+
+		callback();
+	},
+
+	getPosts: () => {
+		firebase.database().ref('/posts').on('value', (snapshot) => {
+			console.log('posts');
+			snapshot.forEach((data) => {
+				console.dir(data);
+			});
+		});
+
+		return [];
 	}
 };

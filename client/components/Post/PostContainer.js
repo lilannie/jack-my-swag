@@ -14,8 +14,8 @@ export default class PostContainer extends Component {
 
 		this.state = {
 			editing: false,
-			title,
-			description
+			title: title || 'Gov. Rick Snyder makes appointment to the State Board of Accountancy',
+			description: description || 'Gov. Rick Snyder today announced the appointment of Robert (Lee) Clark of Saline to the State Board of Accountancy. Housed within the Michigan Department of Licensing and Regulatory Affairs, the nine-member board oversees licensure and certification requirements for certified public accountants and public accounting firms.'
 		};
 
 		this.handleClick = this.handleClick.bind(this);
