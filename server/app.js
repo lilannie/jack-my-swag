@@ -2,7 +2,7 @@ const path = require('path'),
   express = require('express'),
   app = express(),
 	bodyParser = require('body-parser'),
-	db = require('./db');
+	api = require('./api');
 
 app.use(express.static(path.resolve('public')));
 app.set('view engine', 'html');
@@ -10,33 +10,7 @@ app.set('view engine', 'html');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/x-www-form-urlencoded
 
-app.post('/api/createuser', (req, res) => {
-	console.log('/api/createuser');
-	const body = req.body;
-
-	db.createUser(body.username, body.password, () => {
-		res.status(200);
-		res.type('json'); // => 'application/json'
-		res.send({
-			status: 'success'
-		});
-		res.end();
-	});
-});
-
-app.post('/api/login', (req, res) => {
-	console.log('/api/login');
-	console.log(req.body);
-
-	//db.login();
-
-	res.status(200);
-	res.type('json'); // => 'application/json'
-	res.send({
-		status: 'success'
-	});
-	res.end();
-});
+app.use('/api', api);
 
 app.get('*', (req, res) => {
 	res.sendFile(path.resolve('public', 'index.html'));

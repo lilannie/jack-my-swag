@@ -17,14 +17,9 @@ const createUser = params => {
 	console.dir(options);
 
 	return fetch('http://localhost:3000/api/createUser', options);
-
 };
-export const createUserAction = createActionAsync('CREATE_USER', createUser, {
-	request: {
-		callback: (dispatch, getState, ...args) => {
-			console.log('CREATE_USER request callback');
-		}
-	}
-});
 
-export const createUserReducer = createReducerAsync(createUserAction);
+export const createUserAction =
+	createActionAsync('CREATE_USER', createUser);
+export const createUserReducer =
+	createReducerAsync(createUserAction);
