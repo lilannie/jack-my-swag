@@ -1,21 +1,36 @@
-$dark-teal: #5c8a8a;
-$off-white: #f2f2f2;
-$light-grey: #cccccc;
+$teal: #009999;
+$teal-dark: #008080;
+$teal-light: hsla(180, 100%, 30%, 0.6);
+$teal-grey: hsla(180, 100%, 30%, 0.3);
+
+$charcoal: #333333;
+$charcoal-light: hsla(0, 0%, 20%, 0.1);
+
+$white-off: #f2f2f2;
 
 body {
 	padding: 0;
+	background: $charcoal-light;
 }
 
 .header {
 	.navbar {
-		background: $dark-teal;
+		background: $teal;
 	}
 
 	h1 {
-		color: $off-white;
+		color: $white-off;
 	}
 }
 
 .notification {
-	background-color: $light-grey;
+	background-color: $teal-light;
+
+	.body {
+		padding-top: 10px;
+	}
+}
+
+.main {
+	padding-top: 6em;
 }

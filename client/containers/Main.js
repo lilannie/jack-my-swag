@@ -10,7 +10,7 @@ import '../scss/app.scss';
 export default class Main extends Component {
   render() {
     return (
-    	<div className="main">
+    	<div className="main container">
 		    <Header/>
 		    <Switch>
 			    <Route exact path="/" component={Home} />

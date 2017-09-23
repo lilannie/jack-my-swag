@@ -7,7 +7,9 @@ export default class Home extends Component {
 		return (
 			<div className="home">
 				<div className="notification-container">
-
+					<Notification/>
+					<Notification/>
+					<Notification/>
 					<Notification/>
 					<Notification/>
 				</div>
