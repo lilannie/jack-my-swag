@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-import ModifyNotification from 'ModifyNotification';
-import Notification from 'Notification';
+import ModifyPost from './ModifyPost';
+import Post from './Post';
 
-export default class NotificationContainer extends Component {
+export default class PostContainer extends Component {
 	constructor(props) {
 		super(props);
 
@@ -29,6 +29,10 @@ export default class NotificationContainer extends Component {
 
 	handleEdit(id) {
 		console.log('handleEdit id: '+id);
+
+		this.setState({
+			editing: true
+		});
 	}
 
 	handleChange(inputName, event) {
@@ -36,6 +40,7 @@ export default class NotificationContainer extends Component {
 	}
 
 	render() {
+		const { id } = this.props;
 		const {
 			editing,
 			title,
@@ -43,12 +48,11 @@ export default class NotificationContainer extends Component {
 		} = this.state;
 
 		const content = editing ?
-			(<ModifyNotification handleChange={this.handleChange}
-			                     title={title} description={description}/>) :
-			(<Notification {...this.props}/>);
+			(<ModifyPost handleChange={this.handleChange} title={title} description={description}/>) :
+			(<Post {...this.props}/>);
 
 		return (
-			<div className="notification card my-4" onClick={this.handleClick.bind(null, id)}>
+			<div className="post card my-4" onClick={this.handleClick.bind(null, id)}>
 				{content}
 			</div>
 		);

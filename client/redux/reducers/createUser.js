@@ -16,7 +16,7 @@ const createUser = params => {
 
 	console.dir(options);
 
-	return fetch('http://localhost:3000/api/createUser', options);
+	return fetch('http://localhost:3000/api/create-user', options);
 };
 
 export const createUserAction =

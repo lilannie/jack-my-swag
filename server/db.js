@@ -28,5 +28,12 @@ module.exports = {
 			});
 
 		callback();
+	},
+	createPost: (title, description) => {
+		firebase.database().ref('/posts').set({
+			title: {
+				description
+			}
+		})
 	}
 };

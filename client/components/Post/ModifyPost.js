@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class ModifyNotification extends Component {
+export default class ModifyPost extends Component {
 	constructor(props) {
 		super(props);
 	}

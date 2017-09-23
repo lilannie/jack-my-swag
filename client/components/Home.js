@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import NotificationContainer from './notifications/NotificationContainer';
+import NotificationContainer from './Post/PostContainer';
 
 export default class Home extends Component {
 	render() {
