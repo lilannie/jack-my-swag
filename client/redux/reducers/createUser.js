@@ -1,7 +1,7 @@
 import { createActionAsync, createReducerAsync } from 'redux-act-async';
 
 const createUser = (username, password) => {
-	let body = {
+	let options = {
 		method: 'POST',
 		body: JSON.stringify({
 			username,
@@ -9,19 +9,13 @@ const createUser = (username, password) => {
 		})
 	};
 
-	fetch('http://localhost:3000/api/createuser', body)
-		.then((response) => response.json())
-		.then((responseJson) => {
-			return responseJson;
-		})
-		.catch((error) => {
-			console.error(error);
-		});
+	return fetch('http://localhost:3000/api/createUser', options);
+
 };
-export const createUserAction = createActionAsync('createUser', createUser, {
+export const createUserAction = createActionAsync('CREATE_USER', createUser, {
 	request: {
 		callback: (dispatch, getState, ...args) => {
-			console.log('request callback');
+			console.log('CREATE_USER request callback');
 		}
 	}
 });

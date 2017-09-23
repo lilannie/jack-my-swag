@@ -24,6 +24,12 @@ module.exports = {
     },
     extensions: ['', '.js', '.jsx']
   },
+	// node: {
+	// 	fs: 'empty',
+	// 	net: 'empty',
+	// 	tls: 'empty',
+	// 	dns: 'empty'
+	// },
   module: {
     loaders: [
       {

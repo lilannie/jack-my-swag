@@ -1,7 +1,7 @@
 import { createActionAsync, createReducerAsync } from 'redux-act-async';
 
 const login = (username, password) => {
-	let body = {
+	let options = {
 		method: 'POST',
 		body: JSON.stringify({
 			username,
@@ -9,19 +9,13 @@ const login = (username, password) => {
 		})
 	};
 
-	fetch('http://localhost:3000/api/login', body)
-		.then(response => response.json())
-		.then((responseJson) => {
-			return responseJson;
-		})
-		.catch((error) => {
-			console.error(error);
-		});
+	return fetch('http://localhost:3000/api/login', options);
 };
+
 export const loginAction = createActionAsync('LOGIN', login, {
 	request: {
 		callback: (dispatch, getState, ...args) => {
-			console.log('request callback');
+			console.log('LOGIN request callback');
 		}
 	}
 });
