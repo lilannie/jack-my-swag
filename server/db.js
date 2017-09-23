@@ -17,6 +17,8 @@ module.exports = {
 				console.log('Error createUserWithEmailAndPassword');
 				console.log(error);
 			});
+
+		callback();
 	},
 	login: (email, password, callback) => {
 		firstbase.auth().signInWithEmailAndPassword(email, password)
@@ -24,5 +26,7 @@ module.exports = {
 				console.log('Error signInWithEmailAndPassword');
 				console.log(error);
 			});
+
+		callback();
 	}
 };

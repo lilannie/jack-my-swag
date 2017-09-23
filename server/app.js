@@ -8,18 +8,20 @@ app.use(express.static(path.resolve('public')));
 app.set('view engine', 'html');
 
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/x-www-form-urlencoded
 
 app.post('/api/createuser', (req, res) => {
 	console.log('/api/createuser');
-	console.log(req.body);
+	const body = req.body;
 
-	//db.createUser();
-
-	res.json({
-		status: 'success'
+	db.createUser(body.username, body.password, () => {
+		res.status(200);
+		res.type('json'); // => 'application/json'
+		res.send({
+			status: 'success'
+		});
+		res.end();
 	});
-	res.end();
 });
 
 app.post('/api/login', (req, res) => {

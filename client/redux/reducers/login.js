@@ -6,7 +6,10 @@ const login = (username, password) => {
 		body: JSON.stringify({
 			username,
 			password
-		})
+		}),
+		headers: {
+			'Content-Type': 'application/json'
+		}
 	};
 
 	return fetch('http://localhost:3000/api/login', options);

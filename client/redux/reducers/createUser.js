@@ -1,13 +1,20 @@
 import { createActionAsync, createReducerAsync } from 'redux-act-async';
 
-const createUser = (username, password) => {
+const createUser = params => {
+	const { username, password } = params;
+
 	let options = {
 		method: 'POST',
 		body: JSON.stringify({
 			username,
 			password
-		})
+		}),
+		headers: {
+			'Content-Type': 'application/json'
+		}
 	};
+
+	console.dir(options);
 
 	return fetch('http://localhost:3000/api/createUser', options);
 
