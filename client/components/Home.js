@@ -9,7 +9,7 @@ export class Home extends Component {
 	constructor(props) {
 		super(props);
 
-gs
+		this.resolvePosts = this.resolvePosts.bind(this);
 	}
 
 	componentDidMount() {
@@ -21,18 +21,25 @@ gs
 	}
 
 	resolvePosts() {
+		const {
+			posts
+		} = this.props;
 
+		let postComponents = [];
+		if (posts != undefined){
+			posts.foreach(post => {
+				postComponents.push(<PostContainer title={post.title} description={post.description}/>)
+			});
+		}
+
+		return postComponents;
 	}
 
 	render() {
 		return (
 			<div className="home">
 				<div className="notification-container">
-					<PostContainer/>
-					<PostContainer/>
-					<PostContainer/>
-					<PostContainer/>
-					<PostContainer/>
+					{this.resolvePosts()}
 				</div>
 			</div>
 		);
