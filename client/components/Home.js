@@ -26,9 +26,10 @@ export class Home extends Component {
 		} = this.props;
 
 		let postComponents = [];
-		if (posts != undefined){
-			posts.foreach(post => {
-				postComponents.push(<PostContainer title={post.title} description={post.description}/>)
+		if (posts != undefined && posts != null){
+			posts.forEach(post => {
+				postComponents.push(<PostContainer key={post.id}
+				                                   title={post.title} description={post.description}/>);
 			});
 		}
 

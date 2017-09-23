@@ -1,22 +1,28 @@
 import { createActionAsync, createReducerAsync } from 'redux-act-async';
+import database from '../database';
 
-const createPost = () => {
+const getPosts = () => {
 	return new Promise((resolve, reject) => {
-		fetch('http://localhost:3000/api/posts')
-			.then((response) => response.json())
-			.then((responseJson) => {
-				console.log(responseJson);
-				resolve(responseJson);
-			})
-			.catch(error => {
-				console.log('ERROR - GET /api/posts');
-				console.warn(error);
-				reject(error);
+		database.ref('/posts').on('value', (snapshot) => {
+			let posts = [];
+
+			snapshot.forEach((data) => {
+				const { title, description } = data.val();
+
+				posts.push({
+					id: data.key,
+					title,
+					description
+				});
+
 			});
+			resolve(posts);
+
+		});
 	});
 };
 
 export const getPostsAction =
-	createActionAsync('GET_POSTS', createPost);
+	createActionAsync('GET_POSTS', getPosts);
 export const getPostsReducer =
 	createReducerAsync(getPostsAction);
