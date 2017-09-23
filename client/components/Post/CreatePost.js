@@ -15,6 +15,7 @@ export class CreatePost extends Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.shareFacebook = this.shareFacebook.bind(this);
 	}
 
 	handleChange(inputName, event) {
@@ -34,6 +35,14 @@ export class CreatePost extends Component {
 		diispatchCreatePost(title, description);
 	}
 
+	shareFacebook() {
+		FB.ui({
+			method: 'share',
+			display: 'popup',
+			href: 'https://developers.facebook.com/docs/',
+		}, function(response){});
+	}
+
 	render() {
 		const {
 			title,
@@ -48,6 +57,7 @@ export class CreatePost extends Component {
 				<input type="text" name="description"
 				       value={description} onChange={this.handleChange.bind(this, ['description'])} />
 				<button type="submit" onClick={this.handleSubmit}>Submit</button>
+				<button onClick={this.shareFacebook}>Share with Facebook</button>
 			</div>
 		);
 	}
