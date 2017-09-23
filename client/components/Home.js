@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+
+import Notification from './notifications/Notification';
 
 export default class Home extends Component {
 	render() {
 		return (
 			<div className="home">
-				Home!
+				<div className="notification-container">
+
+					<Notification/>
+					<Notification/>
+				</div>
 			</div>
 		);
 	}

@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export default class Header extends Component {
 	render() {
 		return (
 			<div className="header">
-				<h1>Header!</h1>
+				<nav className="navbar fixed-top">
+					<div className="container-fluid">
+						<h1 className="text-center">Pulse</h1>
+					</div>
+				</nav>
 			</div>
 		);
 	}

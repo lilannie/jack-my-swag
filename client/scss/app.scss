@@ -1,0 +1,21 @@
+$dark-teal: #5c8a8a;
+$off-white: #f2f2f2;
+$light-grey: #cccccc;
+
+body {
+	padding: 0;
+}
+
+.header {
+	.navbar {
+		background: $dark-teal;
+	}
+
+	h1 {
+		color: $off-white;
+	}
+}
+
+.notification {
+	background-color: $light-grey;
+}
