@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 
-import Notification from './notifications/Notification';
+import NotificationContainer from './notifications/NotificationContainer';
 
 export default class Home extends Component {
 	render() {
 		return (
 			<div className="home">
 				<div className="notification-container">
-					<Notification/>
-					<Notification/>
-					<Notification/>
-					<Notification/>
-					<Notification/>
+					<NotificationContainer/>
+					<NotificationContainer/>
+					<NotificationContainer/>
+					<NotificationContainer/>
+					<NotificationContainer/>
 				</div>
 			</div>
 		);
