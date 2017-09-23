@@ -1,6 +1,8 @@
 import { createActionAsync, createReducerAsync } from 'redux-act-async';
 
-const login = (username, password) => {
+const login = params => {
+	const { username, password } = params;
+
 	let options = {
 		method: 'POST',
 		body: JSON.stringify({

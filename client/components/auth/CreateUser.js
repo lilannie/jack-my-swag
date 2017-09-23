@@ -33,6 +33,7 @@ export class CreateUser extends Component {
 	render() {
 		return (
 			<div className="new-user">
+					<h1>New User</h1>
 					<input className="user-input" type="text"
 					       name="username" value={this.state.username}
 					       onChange={this.handleChange.bind(this, ['username'])} />

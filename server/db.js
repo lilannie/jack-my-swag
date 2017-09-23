@@ -21,7 +21,7 @@ module.exports = {
 		callback();
 	},
 	login: (email, password, callback) => {
-		firstbase.auth().signInWithEmailAndPassword(email, password)
+		firebase.auth().signInWithEmailAndPassword(email, password)
 			.catch(error => {
 				console.log('Error signInWithEmailAndPassword');
 				console.log(error);

@@ -5,9 +5,9 @@ const express = require('express'),
 /* GET home page. */
 router.post('/createuser', (req, res) => {
 	console.log('/api/createuser');
-	const body = req.body;
+	const {username, password} = req.body;
 
-	db.createUser(body.username, body.password, () => {
+	db.createUser(username, password, () => {
 		res.status(200);
 		res.type('json'); // => 'application/json'
 		res.send({
@@ -19,16 +19,17 @@ router.post('/createuser', (req, res) => {
 
 router.post('/login', (req, res) => {
 	console.log('/api/login');
-	console.log(req.body);
+	const {username, password} = req.body;
 
-	//db.login();
-
-	res.status(200);
-	res.type('json'); // => 'application/json'
-	res.send({
-		status: 'success'
+	db.login(username, password, () => {
+		res.status(200);
+		res.type('json'); // => 'application/json'
+		res.send({
+			status: 'success',
+			username
+		});
+		res.end();
 	});
-	res.end();
 });
 
 module.exports = router;

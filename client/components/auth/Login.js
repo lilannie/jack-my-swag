@@ -5,18 +5,45 @@ import PropTypes from 'prop-types';
 import { mapDispatchToProps } from '../../redux/selectors/login';
 
 export class Login extends Component {
-	componentDidMount() {
-		const { dispatchLogin } = this.props;
-		dispatchLogin('annie@gmail.com', 'password');
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: '',
+			password: ''
+		};
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-  render() {
-    return (
-      <div className="login">
-	      Login!
-      </div>
-    );
-  }
+	handleChange(inputName, event) {
+		this.setState({[inputName]: event.target.value});
+	}
+
+	handleSubmit() {
+		const { dispatchLogin } = this.props,
+			{
+				username,
+				password
+			} = this.state;
+
+		dispatchLogin(username, password);
+	}
+
+	render() {
+		return (
+			<div className="login">
+				<h1>Login</h1>
+				<input className="user-input" type="text"
+				       name="username" value={this.state.username}
+				       onChange={this.handleChange.bind(this, ['username'])} />
+				<input className="password-input" type="text"
+				       name="password" value={this.state.password}
+				       onChange={this.handleChange.bind(this, ['password'])} />
+				<button className="submit" onClick={this.handleSubmit} >Submit</button>
+			</div>
+		);
+	}
 }
 
 Login.PropTypes = {
