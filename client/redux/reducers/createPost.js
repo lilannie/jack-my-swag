@@ -18,7 +18,6 @@ const createPost = params => {
 		fetch('http://localhost:3000/api/post', options)
 			.then((response) => response.json())
 			.then((responseJson) => {
-				console.log(responseJson);
 				resolve(responseJson);
 			})
 			.catch(error => {

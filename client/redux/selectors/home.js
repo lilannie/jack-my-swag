@@ -2,7 +2,8 @@ import { getPostsAction } from '../reducers/getPosts';
 
 export const mapStateToProps = state => {
 	return {
-		posts: state.data
+		isFetching: state.getPostsReducer.loading,
+		posts: state.getPostsReducer.data
 	};
 };
 

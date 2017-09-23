@@ -41,7 +41,7 @@ export class Login extends Component {
 					       name="password" placeholder="Password" value={this.state.password}
 					       onChange={this.handleChange.bind(this, ['password'])} />
 					<button className="submit" onClick={this.handleSubmit} >Submit</button>
-					<p> "Not Registered?"</p>
+					<p> Not Registered? </p>
 				</div>
 			</div>
 		);

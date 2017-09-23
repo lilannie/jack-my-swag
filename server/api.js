@@ -47,17 +47,32 @@ router.post('/post', (req, res) => {
 	});
 });
 
+router.put('/post', (req, res) => {
+	console.log('PUT /api/post');
+	const { id, title, description } = req.body;
+
+	db.updatePost({id, title, description}, () => {
+		res.status(200);
+		res.type('json');
+		res.send({
+			status: 'success'
+		});
+		res.end();
+	});
+});
+
 router.get('/posts', (req, res) => {
 	console.log('GET /api/posts');
 
-	let posts = db.getPosts();
-	res.status(200);
-	res.type('json');
-	res.send({
-		status: 'success',
-		posts
+	db.getPosts(posts => {
+		res.status(200);
+		res.type('json');
+		res.send({
+			status: 'success',
+			posts
+		});
+		res.end();
 	});
-	res.end();
 });
 
 module.exports = router;

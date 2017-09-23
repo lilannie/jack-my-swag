@@ -33,21 +33,38 @@ module.exports = {
 
 	createPost: (title, description, callback) => {
 		firebase.database().ref('/posts').push({
-			title: title || 'Fake title',
-			description: description || 'Fake description'
+			title: title,
+			description: description
 		});
 
 		callback();
 	},
 
-	getPosts: () => {
-		firebase.database().ref('/posts').on('value', (snapshot) => {
-			console.log('posts');
-			snapshot.forEach((data) => {
-				console.dir(data);
-			});
-		});
+	getPosts: callback => {
+		let posts = [];
 
-		return [];
+		firebase.database().ref('/posts').on('value', (snapshot) => {
+			snapshot.forEach((data) => {
+				const { title, description } = data.val();
+
+				posts.push({
+					id: data.key,
+					title,
+					description
+				});
+
+			});
+			callback(posts);
+		});
+	},
+
+	updatePost: (params, callback) => {
+		const { id, title, description } = params;
+
+		firebase.database().ref('/posts').ref(id).set({
+			title,
+			description
+		});
+		callback();
 	}
 };
