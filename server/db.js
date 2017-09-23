@@ -11,14 +11,14 @@ const firebase = require('firebase'),
 firebase.initializeApp(config);
 
 module.exports = {
-	createUser: (email, password) => {
+	createUser: (email, password, callback) => {
 		firebase.auth().createUserWithEmailAndPassword(email, password)
 			.catch(error => {
 				console.log('Error createUserWithEmailAndPassword');
 				console.log(error);
 			});
 	},
-	login: (email, password) => {
+	login: (email, password, callback) => {
 		firstbase.auth().signInWithEmailAndPassword(email, password)
 			.catch(error => {
 				console.log('Error signInWithEmailAndPassword');

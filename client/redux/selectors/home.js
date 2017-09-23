@@ -1,9 +1,9 @@
-import { setVisibilityFilter, VisibilityFilters } from '../actions/example';
+import { loginAction } from '../reducers/login';
 
 export const mapDispatchToProps = dispatch => {
 	return {
-		dispatchSetVisibilityFilter: () => {
-			return dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
+		dispatchLogin: (username, password) => {
+			return dispatch(loginAction({username, password}));
 		}
 	};
 };

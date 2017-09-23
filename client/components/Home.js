@@ -10,9 +10,10 @@ class Home extends Component {
 	}
 
 	componentDidMount() {
-		const { dispatchSetVisibilityFilter } = this.props;
-		dispatchSetVisibilityFilter();
+		const { dispatchLogin } = this.props;
+		dispatchLogin('annie@gmail.com', 'password');
 	}
+
 	render() {
 		return (
 			<div className="home">
@@ -23,7 +24,7 @@ class Home extends Component {
 };
 
 Home.PropTypes = {
-	dispatchSetVisibilityFilter: PropTypes.func.isRequired
+	dispatchLogin: PropTypes.func.isRequired
 };
 
 export default connect(()=> ({}), mapDispatchToProps)(Home);

@@ -1,15 +1,39 @@
 const path = require('path'),
   express = require('express'),
   app = express(),
+	bodyParser = require('body-parser'),
 	db = require('./db');
 
 app.use(express.static(path.resolve('public')));
 app.set('view engine', 'html');
 
-app.post('/api/newuser', (req, res) => {
-	console.log('/api/newuser');
-	console.log(req);
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+app.post('/api/createuser', (req, res) => {
+	console.log('/api/createuser');
+	console.log(req.body);
+
 	//db.createUser();
+
+	res.json({
+		status: 'success'
+	});
+	res.end();
+});
+
+app.post('/api/login', (req, res) => {
+	console.log('/api/login');
+	console.log(req.body);
+
+	//db.login();
+
+	res.status(200);
+	res.type('json'); // => 'application/json'
+	res.send({
+		status: 'success'
+	});
+	res.end();
 });
 
 app.get('*', (req, res) => {

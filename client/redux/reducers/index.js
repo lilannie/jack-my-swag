@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { visibilityFilter, todos } from "./example";
+import { loginReducer } from "./login";
+import { createUserReducer } from "./createUser";
 
 const reducers = combineReducers({
-	visibilityFilter,
-	todos
+	loginReducer,
+	createUserReducer
 });
 
 export default reducers;
