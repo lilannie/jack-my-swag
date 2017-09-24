@@ -32,15 +32,17 @@ export class CreateUser extends Component {
 
 	render() {
 		return (
-			<div className="new-user">
-					<h1>New User</h1>
-					<input className="user-input" type="text"
-					       name="username" value={this.state.username}
-					       onChange={this.handleChange.bind(this, ['username'])} />
-					<input className="password-input" type="text"
-					       name="password" value={this.state.password}
-					       onChange={this.handleChange.bind(this, ['password'])} />
-					<button className="submit" onClick={this.handleSubmit} >Submit</button>
+			<div className= "background">
+				<div className="new-user">
+						<h1>New User</h1>
+						<input className="user-input" type="text"
+						       name="username" placeholder="Username" value={this.state.username}
+						       onChange={this.handleChange.bind(this, ['username'])} />
+						<input className="password-input" type="password"
+						       name="password" placeholder="New Password" value={this.state.password}
+						       onChange={this.handleChange.bind(this, ['password'])} />
+						<button className="submit" onClick={this.handleSubmit} >Submit</button>
+				</div>
 			</div>
 		);
 	}

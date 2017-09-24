@@ -37,7 +37,7 @@ export class Login extends Component {
 					<input 	className="user-input" type="text"
 					       name="username" placeholder="Username" value={this.state.username}
 					       onChange={this.handleChange.bind(this, ['username'])} />
-					<input className="password-input" type="text"
+					<input className="password-input" type="password"
 					       name="password" placeholder="Password" value={this.state.password}
 					       onChange={this.handleChange.bind(this, ['password'])} />
 					<button className="submit" onClick={this.handleSubmit} >Submit</button>

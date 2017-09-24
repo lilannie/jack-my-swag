@@ -41,7 +41,8 @@ body {
   padding: 8% 0 0;
   margin: auto;
 }
-.login {
+
+.login, .new-user, .postBox {
 	background-color: $teal-grey;
   	margin: auto;
   	position: relative;
@@ -72,5 +73,10 @@ body {
   	p {
   	font-size: 12px;
   	}
+    .description {
+      height: 75px;
+      text-allign: initial;
+
+    }
 }
 
