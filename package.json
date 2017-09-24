@@ -6,6 +6,7 @@
   "license": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./server/app.js",
     "build": "./node_modules/.bin/webpack --config ./config/webpack.config.js -w",
     "server": "nodemon ./server/app.js",
     "test": "jest --config ./config/jest.config.json"
