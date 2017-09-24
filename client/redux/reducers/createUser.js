@@ -19,7 +19,7 @@ const createUser = params => {
 		fetch('http://localhost:3000/api/user', options)
 			.then((response) => response.json())
 			.then((responseJson) => {
-				resolve(responseJson);
+				resolve(responseJson.user);
 			})
 			.catch(error => {
 				console.log('ERROR - POST /api/user');

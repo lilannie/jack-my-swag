@@ -28,8 +28,12 @@ export class Home extends Component {
 		let postComponents = [];
 		if (posts != undefined && posts != null){
 			posts.forEach(post => {
-				postComponents.push(<PostContainer key={post.id}
-				                                   title={post.title} description={post.description}/>);
+				postComponents.push(
+					<PostContainer id={post.id}
+					               key={post.id}
+                         title={post.title}
+                         description={post.description}/>
+				);
 			});
 		}
 

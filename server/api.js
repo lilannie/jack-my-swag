@@ -7,13 +7,24 @@ router.post('/user', (req, res) => {
 	console.log('POST /api/user');
 	const {username, password, phoneNumber} = req.body;
 
-	db.createUser(username, password, phoneNumber, () => {
-		res.status(200);
+	db.createUser(username, password, phoneNumber, (user, error) => {
 		res.type('json');
-		res.send({
-			status: 'success'
-		});
-		res.end();
+
+		if (error) {
+			console.log('error' + error);
+			res.status(403);
+			res.send({
+				status: 'Unauthorized',
+			});
+		}
+		else {
+			console.log(user);
+			res.status(200);
+			res.send({
+				status: 'success',
+				user
+			});
+		}
 	});
 });
 

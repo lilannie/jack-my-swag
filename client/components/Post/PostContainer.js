@@ -50,11 +50,14 @@ export default class PostContainer extends Component {
 		} = this.state;
 
 		const content = editing ?
-			(<ModifyPost handleChange={this.handleChange} title={title} description={description}/>) :
-			(<Post {...this.props}/>);
+			(<ModifyPost handleChange={this.handleChange}
+			             title={title} description={description}/>) :
+			(
+					<Post {...this.props}/>
+			);
 
 		return (
-			<div className="post card my-4" onClick={this.handleClick.bind(null, id)}>
+			<div className="post card my-4">
 				{content}
 			</div>
 		);

@@ -12,16 +12,29 @@ firebase.initializeApp(config);
 
 module.exports = {
 	createUser: (email, password, phoneNumber, callback) => {
-		firebase.auth().createUserWithEmailAndPassword(email, password, phoneNumber)
-			.then(res => {
-				console.log(res);
+		firebase.auth().createUserWithEmailAndPassword(email, password)
+			.then(user => {
+
+				user.updateProfile({
+					phoneNumber
+
+				}).then(() => {
+					callback({
+						id: firebase.auth().currentUser.uid,
+						email,
+						phoneNumber
+					}, null);
+
+				}).catch(error => {
+					callback(null, error);
+
+				});
 			})
 			.catch(error => {
 				console.log('Error createUserWithEmailAndPassword');
 				console.log(error);
+				callback(error);
 			});
-
-		callback({email, phoneNumber});
 	},
 
 	login: (email, password, callback) => {

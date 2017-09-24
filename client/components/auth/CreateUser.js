@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { mapDispatchToProps } from '../../redux/selectors/createUser';
 
@@ -76,9 +77,8 @@ export class CreateUser extends Component {
 						</label>
 					</span>
 
-					<Link to="/">
-						<button className="submit" onClick={this.handleSubmit}>Create User</button>
-					</Link>
+					<button className="submit" onClick={this.handleSubmit}>Create User</button>
+
 				</div>
 			</div>
 		);

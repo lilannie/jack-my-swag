@@ -29,9 +29,22 @@ body {
 .post {
 	background-color: $teal-light;
 
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
 	.body {
 		padding-top: 10px;
 	}
+
+	.notify {
+
+	}
+}
+
+.post:hover {
+	background-color: $teal;
 }
 
 .main {
