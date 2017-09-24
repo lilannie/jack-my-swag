@@ -8,9 +8,12 @@ $charcoal-light: hsla(0, 0%, 20%, 0.1);
 
 $white-off: #f2f2f2;
 
+.bgcolor-4 { background: #2f3238; color: #fff; }
+
 body {
 	padding: 0;
 	background: $charcoal-light;
+	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .header {
@@ -35,48 +38,163 @@ body {
 	padding-top: 6em;
 }
 
-
 .background {
-  width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
 
 .login, .new-user, .postBox {
-	background-color: $teal-grey;
-  	margin: auto;
-  	position: relative;
-  	z-index: 1;
-  	max-width: 360px;
-  	margin: 0 auto 100px;
-  	padding: 45px;
-  	text-align: center;
-  	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  	.h1 {
-  		text-align: center;
-  	}
-  	input {
-  		margin: 0 0 15px;
-  		width: 100%
-  	}		
-  	.submit {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+	.h1 {
+    text-align: center;
+  }
+
+	.submit {
 		padding: 0.4em 1.3em;
 		border: .5px solid $charcoal;
 		background: white;
 		text-align: center;
 		text-transform: uppercase;
-		cursor: pointer;	
-  	}
-  	button {
-  		width: 100%
-  	}
-  	p {
-  	font-size: 12px;
-  	}
-    .description {
-      height: 75px;
-      text-allign: initial;
+		width: 90%;
+		outline: none;
+	}
 
-    }
+	.submit:active, .submit:hover {
+		border: lightgrey;
+		background: grey;
+		outline: none;
+	}
+
+	.sub-title {
+		float: right;
+		padding-right: 10%;
+		a {
+			color: white;
+		}
+		a:hover {
+			color: lightgrey;
+		}
+	}
+
+  .description {
+    height: 75px;
+    text-align: initial;
+  }
+
+	.input {
+		position: relative;
+		z-index: 1;
+		display: inline-block;
+		margin: 1em;
+		max-width: 350px;
+		width: calc(100% - 2em);
+		vertical-align: top;
+	}
+	.input__field {
+		position: relative;
+		display: block;
+		float: right;
+		padding: 0.8em;
+		width: 60%;
+		border: none;
+		border-radius: 0;
+		background: #f0f0f0;
+		color: #aaa;
+		font-weight: 400;
+		-webkit-appearance: none; /* for box shadows to show on iOS */
+	}
+
+	.input__field:focus {
+		outline: none;
+	}
+
+	.input__label {
+		display: inline-block;
+		float: right;
+		padding: 0 1em;
+		width: 40%;
+		color: #696969;
+		font-weight: bold;
+		font-size: 70.25%;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	.input__label-content {
+		position: relative;
+		display: block;
+		padding: 1.6em 0;
+		width: 100%;
+	}
+
+	/* Ruri */
+	.input__field--ruri {
+		width: 100%;
+		background: transparent;
+		padding: 0.5em 0;
+		margin-bottom: 2em;
+		color: #fff;
+	}
+
+	.input__label--ruri {
+		width: 100%;
+		position: absolute;
+		text-align: left;
+		font-size: 1em;
+		padding: 10px 0 5px;
+		pointer-events: none;
+	}
+
+	.input__label--ruri::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 7px;
+		background: $teal-light;
+		left: 0;
+		top: 100%;
+		-webkit-transform-origin: 50% 100%;
+		transform-origin: 50% 100%;
+		-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+		transition: transform 0.3s, background-color 0.3s;
+	}
+
+	.input__label.active {
+		color: transparent;
+	}
+
+	.input__label-content--ruri {
+		padding: 0;
+		-webkit-transform-origin: 0 0;
+		transform-origin: 0 0;
+		-webkit-transition: -webkit-transform 0.3s, color 0.3s;
+		transition: transform 0.3s, color 0.3s;
+	}
+
+	.input__field--ruri:focus + .input__label--ruri::after,
+	.input--filled .input__label--ruri::after {
+		background: $teal-light;
+		-webkit-transform: scale3d(1, 0.25, 1);
+		transform: scale3d(1, 0.25, 1);
+	}
+
+	.input__field--ruri:focus + .input__label--ruri .input__label-content--ruri,
+	.input--filled .input__label--ruri .input__label-content--ruri {
+		color: $teal-light;
+		-webkit-transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+		transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+	}
 }
 

@@ -14,6 +14,7 @@ export class CreateUser extends Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.isActiveLabel = this.isActiveLabel.bind(this);
 	}
 
 	handleChange(inputName, event) {
@@ -30,18 +31,37 @@ export class CreateUser extends Component {
 		dispatchCreateUser(username, password);
 	}
 
+	isActiveLabel(element){
+		return 'input__label input__label--ruri '+((this.state[element].length > 0) ?'active':'');
+	}
+
 	render() {
 		return (
-			<div className= "background">
-				<div className="new-user">
-						<h1>New User</h1>
-						<input className="user-input" type="text"
-						       name="username" placeholder="Username" value={this.state.username}
-						       onChange={this.handleChange.bind(this, ['username'])} />
-						<input className="password-input" type="password"
-						       name="password" placeholder="New Password" value={this.state.password}
+			<div className= "background col-md-6">
+				<div className="new-user bgcolor-4">
+					<h1>New User</h1>
+
+					<span className="input input--ruri">
+						<input className="input__field input__field--ruri" type="text" id="input-26"
+						       name="username" value={this.state.username}
+						       onChange={this.handleChange.bind(this, ['username'])}/>
+						<label className={this.isActiveLabel('username')} htmlFor="input-26">
+							<span className="input__label-content input__label-content--ruri">Username</span>
+						</label>
+					</span>
+
+					<span className="input input--ruri">
+						<input className="input__field input__field--ruri" type="password" id="input-27"
+						       name="password" value={this.state.password}
 						       onChange={this.handleChange.bind(this, ['password'])} />
-						<button className="submit" onClick={this.handleSubmit} >Submit</button>
+						<label className={this.isActiveLabel('password')}  htmlFor="input-27">
+							<span className="input__label-content input__label-content--ruri">Password</span>
+						</label>
+					</span>
+
+					<Link to="/">
+						<button className="submit" onClick={this.handleSubmit}>Create User</button>
+					</Link>
 				</div>
 			</div>
 		);
