@@ -40,3 +40,5 @@ public/bundle.js
 npm-debug.log
 .DS_Store
 .idea
+
+package-lock.json

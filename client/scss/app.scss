@@ -34,3 +34,49 @@ body {
 .main {
 	padding-top: 6em;
 }
+
+
+.background {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.login, .new-user, .postBox {
+	background-color: $teal-grey;
+  	margin: auto;
+  	position: relative;
+  	z-index: 1;
+  	max-width: 360px;
+  	margin: 0 auto 100px;
+  	padding: 45px;
+  	text-align: center;
+  	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  	.h1 {
+  		text-align: center;
+  	}
+  	input {
+  		margin: 0 0 15px;
+  		width: 100%
+  	}		
+  	.submit {
+		padding: 0.4em 1.3em;
+		border: .5px solid $charcoal;
+		background: white;
+		text-align: center;
+		text-transform: uppercase;
+		cursor: pointer;	
+  	}
+  	button {
+  		width: 100%
+  	}
+  	p {
+  	font-size: 12px;
+  	}
+    .description {
+      height: 75px;
+      text-allign: initial;
+
+    }
+}
+

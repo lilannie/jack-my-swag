@@ -32,15 +32,17 @@ export class Login extends Component {
 
 	render() {
 		return (
-			<div className="login">
-				<h1>Login</h1>
-				<input className="user-input" type="text"
-				       name="username" value={this.state.username}
-				       onChange={this.handleChange.bind(this, ['username'])} />
-				<input className="password-input" type="text"
-				       name="password" value={this.state.password}
-				       onChange={this.handleChange.bind(this, ['password'])} />
-				<button className="submit" onClick={this.handleSubmit} >Submit</button>
+			<div className="background">
+				<div className="login">
+					<input 	className="user-input" type="text"
+					       name="username" placeholder="Username" value={this.state.username}
+					       onChange={this.handleChange.bind(this, ['username'])} />
+					<input className="password-input" type="password"
+					       name="password" placeholder="Password" value={this.state.password}
+					       onChange={this.handleChange.bind(this, ['password'])} />
+					<button className="submit" onClick={this.handleSubmit} >Submit</button>
+					<p> Not Registered? </p>
+				</div>
 			</div>
 		);
 	}
