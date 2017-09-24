@@ -20,6 +20,7 @@
     "react-dom": "^15.3.2",
     "react-facebook": "^4.0.14",
     "react-redux": "^5.0.6",
+    "react-social": "^1.10.0",
     "redux-act-async": "^1.7.0",
     "redux-thunk": "^2.2.0"
   },

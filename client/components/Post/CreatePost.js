@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import FacebookProvider, { ShareButton } from 'react-facebook';
+import { FacebookButton, FacebookCount } from "react-social";
 
 import { mapDispatchToProps } from '../../redux/selectors/createPost';
 export class CreatePost extends Component {
@@ -16,7 +16,7 @@ export class CreatePost extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-
+ 
 	handleChange(inputName, event) {
 		this.setState({[inputName]: event.target.value});
 	}
@@ -49,9 +49,9 @@ export class CreatePost extends Component {
 					<input type="text" className="description" placeholder="What's happening in your town?"
 					       value={description} onChange={this.handleChange.bind(this, ['description'])} />
 					<button type="submit" onClick={this.handleSubmit}>Submit</button>
-					<FacebookProvider appId="123456789">
-        				<ShareButton href="http://www.facebook.com" />
-      				</FacebookProvider>
+                	<FacebookButton title="Share via Facebook" message={message} appId={1368653369923435	} url={"facebook.com"} element="a" className="">
+                    	<i className="fa fa-facebook-square"/>
+               		</FacebookButton>
 				</div>
 			</div>
 		);
