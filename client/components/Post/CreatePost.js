@@ -50,16 +50,6 @@ export class CreatePost extends Component {
 		} = this.state;
 
 		return (
-<<<<<<< HEAD
-			<div className="container">
-				<h2>Create a Post</h2>
-				<input type="text" name="title"
-				       value={title} onChange={this.handleChange.bind(this, ['title'])} />
-				<input type="text" name="description"
-				       value={description} onChange={this.handleChange.bind(this, ['description'])} />
-				<button type="submit" onClick={this.handleSubmit}>Submit</button>
-				<button onClick={this.shareFacebook}>Share with Facebook</button>
-=======
 			<div className="background">
 				<div className="postBox">
 					<h2>Create a Post</h2>
@@ -72,7 +62,6 @@ export class CreatePost extends Component {
         				<ShareButton href="http://www.facebook.com" />
       				</FacebookProvider>
 				</div>
->>>>>>> jacob-dev
 			</div>
 		);
 	}
