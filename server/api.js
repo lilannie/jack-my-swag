@@ -5,9 +5,9 @@ const express = require('express'),
 /** USER **/
 router.post('/user', (req, res) => {
 	console.log('POST /api/user');
-	const {username, password} = req.body;
+	const {username, password, phoneNumber} = req.body;
 
-	db.createUser(username, password, () => {
+	db.createUser(username, password, phoneNumber, () => {
 		res.status(200);
 		res.type('json');
 		res.send({
@@ -35,9 +35,9 @@ router.post('/login', (req, res) => {
 /** POSTS **/
 router.post('/post', (req, res) => {
 	console.log('POST /api/post');
-	const { title, description } = req.body;
+	const { title, description, category } = req.body;
 
-	db.createPost(title, description, () => {
+	db.createPost(title, description, category, () => {
 		res.status(200);
 		res.type('json');
 		res.send({

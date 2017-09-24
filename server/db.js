@@ -11,14 +11,17 @@ const firebase = require('firebase'),
 firebase.initializeApp(config);
 
 module.exports = {
-	createUser: (email, password, callback) => {
-		firebase.auth().createUserWithEmailAndPassword(email, password)
+	createUser: (email, password, phoneNumber, callback) => {
+		firebase.auth().createUserWithEmailAndPassword(email, password, phoneNumber)
+			.then(res => {
+				console.log(res);
+			})
 			.catch(error => {
 				console.log('Error createUserWithEmailAndPassword');
 				console.log(error);
 			});
 
-		callback();
+		callback({email, phoneNumber});
 	},
 
 	login: (email, password, callback) => {
@@ -31,10 +34,11 @@ module.exports = {
 		callback();
 	},
 
-	createPost: (title, description, callback) => {
+	createPost: (title, description, category, callback) => {
 		firebase.database().ref('/posts').push({
-			title: title,
-			description: description
+			title,
+			description,
+			category
 		});
 
 		callback();

@@ -9,7 +9,8 @@ export class CreateUser extends Component {
 		super(props);
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+			phoneNumber: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -25,10 +26,11 @@ export class CreateUser extends Component {
 		const { dispatchCreateUser } = this.props,
 			{
 				username,
-				password
+				password,
+				phoneNumber
 			} = this.state;
 
-		dispatchCreateUser(username, password);
+		dispatchCreateUser(username, password, phoneNumber);
 	}
 
 	isActiveLabel(element){
@@ -36,6 +38,12 @@ export class CreateUser extends Component {
 	}
 
 	render() {
+		const {
+			username,
+			password,
+			phoneNumber
+		} = this.state;
+
 		return (
 			<div className= "background col-md-6">
 				<div className="new-user bgcolor-4">
@@ -43,7 +51,7 @@ export class CreateUser extends Component {
 
 					<span className="input input--ruri">
 						<input className="input__field input__field--ruri" type="text" id="input-26"
-						       name="username" value={this.state.username}
+						       name="username" value={username}
 						       onChange={this.handleChange.bind(this, ['username'])}/>
 						<label className={this.isActiveLabel('username')} htmlFor="input-26">
 							<span className="input__label-content input__label-content--ruri">Username</span>
@@ -52,10 +60,19 @@ export class CreateUser extends Component {
 
 					<span className="input input--ruri">
 						<input className="input__field input__field--ruri" type="password" id="input-27"
-						       name="password" value={this.state.password}
+						       name="password" value={password}
 						       onChange={this.handleChange.bind(this, ['password'])} />
 						<label className={this.isActiveLabel('password')}  htmlFor="input-27">
 							<span className="input__label-content input__label-content--ruri">Password</span>
+						</label>
+					</span>
+
+					<span className="input input--ruri">
+						<input className="input__field input__field--ruri" type="phoneNumber" id="input-28"
+						       name="text" value={phoneNumber}
+						       onChange={this.handleChange.bind(this, ['phoneNumber'])} />
+						<label className={this.isActiveLabel('phoneNumber')}  htmlFor="input-28">
+							<span className="input__label-content input__label-content--ruri">Phone Number</span>
 						</label>
 					</span>
 

@@ -2,13 +2,14 @@ import { createActionAsync, createReducerAsync } from 'redux-act-async';
 
 const createPost = params => {
 	return new Promise((resolve, reject) => {
-		const { title, description } = params;
+		const { title, description, category } = params;
 
 		let options = {
 			method: 'POST',
 			body: JSON.stringify({
 				title,
-				description
+				description,
+				category
 			}),
 			headers: {
 				'Content-Type': 'application/json'

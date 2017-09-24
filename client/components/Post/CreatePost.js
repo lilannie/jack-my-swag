@@ -10,7 +10,8 @@ export class CreatePost extends Component {
 
 		this.state = {
 			title: '',
-			description: ''
+			description: '',
+			category: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -29,10 +30,11 @@ export class CreatePost extends Component {
 
 		const {
 			title,
-			description
+			description,
+			category
 		} = this.state;
 
-		diispatchCreatePost(title, description);
+		diispatchCreatePost(title, description, category);
 	}
 
 	isActiveLabel(element){
@@ -42,7 +44,8 @@ export class CreatePost extends Component {
 	render() {
 		const {
 			title,
-			description
+			description,
+			category
 		} = this.state;
 
 		return (
@@ -63,6 +66,14 @@ export class CreatePost extends Component {
 						       name="description" value={description} onChange={this.handleChange.bind(this, ['description'])} />
 						<label className={this.isActiveLabel('description')}  htmlFor="input-27">
 							<span className="input__label-content input__label-content--ruri">Description</span>
+						</label>
+					</span>
+
+					<span className="input input--ruri">
+						<input className="input__field input__field--ruri" type="text" id="input-28"
+						       name="category" value={category} onChange={this.handleChange.bind(this, ['category'])} />
+						<label className={this.isActiveLabel('description')}  htmlFor="input-28">
+							<span className="input__label-content input__label-content--ruri">Category</span>
 						</label>
 					</span>
 

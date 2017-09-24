@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { mapDispatchToProps } from '../../redux/selectors/createUser';
 
-export class SetSettings extends Component {
+export default class Settings extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -23,9 +23,14 @@ export class SetSettings extends Component {
 
 	render() {
 		return (
-			<div className= "container bgcolor-4">
-
-
+			<div className= "settings container bgcolor-4">
+				<label className="radio">
+					<input id="radio1" type="radio" name="radios" />
+						<span className="outer">
+							<span className="inner"></span>
+						</span>
+						Category 1
+				</label>
 			</div>
 		);
 	}
